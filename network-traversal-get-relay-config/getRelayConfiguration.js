@@ -23,6 +23,10 @@ async function main() {
 
   const config = await relayClient.getRelayConfiguration();
   console.log("RelayConfig", config);
+  config.iceServers.forEach(iceServer => {
+    console.log(iceServer.routeType);
+    iceServer.urls.forEach(url => console.log(url));
+  });
 }
 
 main().catch((error) => {
